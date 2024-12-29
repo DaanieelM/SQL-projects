@@ -18,15 +18,13 @@ ORDER BY total DESC
 LIMIT 3
 
 #Q4: Which city has the best customers? We would like to throw a promotional Music Festival in the city we made the most money. 
-#Write a query that returns one city that has the highest sum of invoice total. Return both the city name & sum of all invoice totals.
 
 SELECT SUM(total) as invoice_total, billing_city
 FROM invoice
 GROUP BY billing_city
 ORDER BY invoice_total DESC
 
-#Q4: Who is the best customer? The customer who has spent the most money will be declared the best customer.
-#Write a query that returns the person who spent the most money.
+#Q5: Who is the best customer? The customer who has spent the most money will be declared the best customer.
 
 SELECT customer.customer_id, customer.first_name, customer.last_name, SUM(invoice.total) as total
 FROM customer
@@ -35,8 +33,7 @@ GROUP BY customer.customer_id
 ORDER BY total DESC
 limit 1
 
-#Q5: Write query to return the email, first name, last name, & Genre of all Rock Music listeners.
-#Return your list ordered alphabetically by email starting with A
+#Q6: Write query to return the email, first name, last name, & Genre of all Rock Music listeners.
 
 SELECT DISTINCT email, first_name, last_name
 FROM customer
